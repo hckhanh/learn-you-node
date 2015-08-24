@@ -72,7 +72,7 @@ async.map(files, getData, function (err, arrData) {
 		return console.error(err);
 
 	arrData.forEach(function (content) {
-		console.log(content);
+		console.log(content + '\n');
 	});
 });
 
@@ -82,7 +82,7 @@ function getData(file, callback) {
 		response.pipe(bl(function (err, data) {
 			if (err)
 				return callback(err, null);
-
+			
 			callback(null, data.toString());
 		}));
 	});
